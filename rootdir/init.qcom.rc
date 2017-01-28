@@ -303,6 +303,19 @@ on post-fs-data
     mkdir /data/misc/display 0770 system graphics
     mkdir /persist/display 0770 system graphics
 
+    # Change ownership and permission for backlight
+    chown system system /sys/class/leds/button-backlight/brightness:0/brightness
+    chmod 0664 /sys/class/leds/button-backlight/brightness:0/brightness
+    chown system system /sys/class/leds/button-backlight/brightness:0/max_brightness
+    chmod 0664 /sys/class/leds/button-backlight/brightness:0/max_brightness
+    chmod 0664 /sys/class/leds/lcd-backlight/brightness
+
+    # Change the ownership of the charging LED interface
+    chown system system /sys/class/leds/rgbled/brightness
+    chmod 0664 /sys/class/leds/rgbled/brightness
+    chown system system /sys/class/leds/rgbled/trigger
+    chmod 0664 /sys/class/leds/rgbled/trigger
+
     # Mounting of persist is moved to 'on emmc-fs' and 'on fs' sections
     # We chown/chmod /persist again so because mount is run as root + defaults
     chown system system /persist
