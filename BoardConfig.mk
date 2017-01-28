@@ -56,7 +56,6 @@ TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 
 # Charger
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
-BOARD_HEALTHD_CUSTOM_CHARGER_RES := $(COMMON_PATH)/ramdisk/res/images/charger
 
 # CMHW
 BOARD_HARDWARE_CLASS := device/lenovo/p1a42/cmhw/src
