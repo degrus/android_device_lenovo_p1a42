@@ -1,2 +1,2 @@
 add_lunch_combo lineage_p1a42-eng
-add_lunch_combo lineage_p1a42-userdebug
+add_lunch_combo aosp_p1a42-userdebug
