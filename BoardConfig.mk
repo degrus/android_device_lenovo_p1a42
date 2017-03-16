@@ -55,7 +55,11 @@ TARGET_NO_BOOTLOADER := true
 TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 
 # Charger
+BOARD_CHARGER_ENABLE_SUSPEND := true
+BOARD_CHARGER_SHOW_PERCENTAGE := true
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
+BACKLIGHT_PATH := "/sys/class/leds/button-backlight/brightness"
+
 
 # CMHW
 BOARD_HARDWARE_CLASS := device/lenovo/p1a42/cmhw/src
