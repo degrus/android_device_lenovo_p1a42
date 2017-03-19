@@ -172,6 +172,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.msm8916
 
+# CMActions
+PRODUCT_PACKAGES += \
+    Actions
+
 # IRSC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
