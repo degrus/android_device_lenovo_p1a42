@@ -1,0 +1,32 @@
+[
+  {
+    "repository": "LineageOS/android_external_sony_boringssl-compat",
+    "target_path": "external/sony/boringssl-compat",
+    "branch": "cm-14.1"
+  },
+  {
+    "repository": "LineageOS/android_device_qcom_common",
+    "target_path": "device/qcom/common",
+    "branch": "cm-14.1"
+  },
+  {
+    "repository": "LineageOS/android_external_stlport",
+    "target_path": "external/stlport",
+    "branch": "cm-14.1"
+  },
+  {
+    "repository": "LineageOS/android_external_bson",
+    "target_path": "external/bson",
+    "branch": "cm-14.1"
+  },
+  {
+   "repository":  "chaubeyprateek/vendor_qcom_binaries",
+   "target_path": "vendor/qcom/binaries",
+   "branch":      "cm-14.1"
+  },
+  {
+   "repository":  "Lineageos/android_packages_resources_devicesettings",
+   "target_path": "packages/resources/devicesettings",
+   "branch":      "cm-14.1"
+  }
+]

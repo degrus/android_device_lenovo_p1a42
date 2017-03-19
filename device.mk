@@ -79,6 +79,10 @@ PRODUCT_PACKAGES += \
     camera.msm8916 \
     Snap
 
+# CMActions
+PRODUCT_PACKAGES += \
+    CMActions
+
 # Display
 PRODUCT_PACKAGES += \
     copybit.msm8916 \
@@ -202,3 +206,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     kernel/lenovo/p1a42/drivers/staging/prima/firmware_bin/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     kernel/lenovo/p1a42/drivers/staging/prima/firmware_bin/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
+
+# miracast props
+PRODUCT_PROPERTY_OVERRIDES += \
+persist.debug.wfd.enable=1
