@@ -21,3 +21,5 @@
 #define BLUETOOTH_QTI_SW TRUE
 #define BLE_VND_INCLUDED   TRUE
 #endif
+/* Defined if the kernel does not have support for CLOCK_BOOTTIME_ALARM */
+#define KERNEL_MISSING_CLOCK_BOOTTIME_ALARM TRUE
