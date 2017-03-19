@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2015-2016 The CyanogenMod Project
-     Copyright (C) 2017 The LineageOS Project
+     Copyright (C) 2015 The CyanogenMod Project
 
      Licensed under the Apache License, Version 2.0 (the "License"
      you may not use this file except in compliance with the License.
@@ -19,38 +18,31 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceCategory
+        android:key="ambient_display_key"
+        android:title="@string/ambient_display_title" >
+
+        <SwitchPreference
+            android:key="gesture_pick_up"
+            android:defaultValue="true"
+            android:title="@string/pick_up_gesture_title"
+            android:summary="@string/pick_up_gesture_summary" />
+
+        <SwitchPreference
+            android:key="gesture_ir_wake_up"
+            android:defaultValue="true"
+            android:title="@string/ir_wake_up_title"
+            android:summary="@string/ir_wake_up_summary" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="actions_key"
-        android:title="@string/actions_title">
-
-        <SwitchPreference
-            android:key="gesture_camera_action"
-            android:defaultValue="true"
-            android:title="@string/camera_gesture_title"
-            android:summary="@string/camera_gesture_summary" />
-
-        <SwitchPreference
-            android:key="gesture_chop_chop"
-            android:defaultValue="true"
-            android:title="@string/chop_chop_gesture_title"
-            android:summary="@string/chop_chop_gesture_summary" />
+        android:title="@string/actions_title" >
 
         <SwitchPreference
             android:key="gesture_ir_silencer"
             android:defaultValue="false"
-            android:title="@string/hand_wave_silencer_title"
-            android:summary="@string/hand_wave_silencer_summary" />
-
-        <SwitchPreference
-            android:key="gesture_flip_to_mute"
-            android:defaultValue="false"
-            android:title="@string/flip_to_mute_title"
-            android:summary="@string/flip_to_mute_summary" />
-
-        <SwitchPreference
-            android:key="gesture_lift_to_silence"
-            android:defaultValue="false"
-            android:title="@string/lift_to_silence_title"
-            android:summary="@string/lift_to_silence_summary" />
+            android:title="@string/ir_silencer_title"
+            android:summary="@string/ir_silencer_summary" />
 
     </PreferenceCategory>
 
