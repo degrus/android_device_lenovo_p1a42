@@ -15,3 +15,6 @@
 
 # fast_charger_sw
 /system/bin/fast_charger_sw 					u:object_r:fast_charger_sw_exec:s0
+
+# fingerprint
+/data/validity/*                     u:object_r:fingerprintd_data_file:s0
