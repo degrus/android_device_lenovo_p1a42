@@ -265,6 +265,9 @@ on post-fs
 
 # msm specific files that need to be created on /data
 on post-fs-data
+    #Create directories for Fingerprint
+    mkdir /data/validity 0770 system system
+
     # Create directory for TZ Apps
     mkdir /data/misc/qsee 0770 system system
 
