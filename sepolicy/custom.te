@@ -1,12 +1,10 @@
 #============= fingerprintd ==============
-allow fingerprintd firmware_file:file { read getattr open };
-allow fingerprintd sysfs:file write;
-allow fingerprintd system_data_file:dir { write remove_name add_name };
-allow fingerprintd system_data_file:sock_file { create unlink };
+allow fingerprintd tee_device:chr_file rw_file_perms;
+allow fingerprintd input_device:dir r_dir_perms;
+allow fingerprintd input_device:chr_file r_file_perms;
 allow fingerprintd sysfs_fingerprintd:file rw_file_perms;
-allow fingerprintd sysmatdrv_device:chr_file w_file_perms;
-allow fingerprintd tee_device:chr_file { read write ioctl open };
-allow fingerprintd uhid_device:chr_file rw_file_perms;
+allow fingerprintd sysfs_fingerprintd:dir search;
+allow fingerprintd sysfs_fingerprintd:dir r_dir_perms;
 
 #============= init ==============
 allow init sdcardd_exec:file getattr;
@@ -26,4 +24,11 @@ allow time_daemon persist_file:dir search;
 
 #============= tee ==============
 allow tee proc:file write;
+allow tee fingerprintd_data_file:file rw_file_perms;
+allow tee fingerprintd_data_file:dir r_dir_perms;
+allow tee system_data_file:dir r_dir_perms;
+allow tee fingerprintd_data_file:dir create_dir_perms;
+allow tee fingerprintd_data_file:file create_file_perms;
+
+allow ueventd sysfs_fingerprintd:file rw_file_perms;
 
