@@ -1,1 +1,2 @@
 type macaddr_data_file, file_type;
+type sysfs_fingerprintd, sysfs_type, fs_type;
