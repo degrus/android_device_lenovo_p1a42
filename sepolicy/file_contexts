@@ -17,5 +17,7 @@
 /system/bin/fast_charger_sw 					u:object_r:fast_charger_sw_exec:s0
 
 # fingerprint
-/sys/devices/soc\.0/fingerprint\.[0-9]+(/.*)?          u:object_r:sysfs_fingerprintd:s0
-/data/validity(/.*)?                                   u:object_r:fingerprintd_data_file:s0
+/dev/validity                                                         u:object_r:fingerprintd_socket:s0
+/data/validity(/.*)?                                                  u:object_r:fingerprintd_data_file:s0
+/data/system/users/0/fpdata(/.*)?                                     u:object_r:fingerprintd_data_file:s0
+/sys/devices/soc.0/fingerprint.67(/.*)?                               u:object_r:fingerprintd_sysfs:s0
