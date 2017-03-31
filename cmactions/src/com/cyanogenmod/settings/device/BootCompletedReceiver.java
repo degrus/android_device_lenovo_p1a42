@@ -16,50 +16,24 @@
 
 package com.cyanogenmod.settings.device;
 
-import com.cyanogenmod.settings.device.ServiceWrapper.LocalBinder;
+import android.content.pm.*;
+import android.content.*;
 
-import android.content.BroadcastReceiver;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import android.util.Log;
-
-public class BootCompletedReceiver extends BroadcastReceiver {
-    static final String TAG = "CMActions";
-    private ServiceWrapper mServiceWrapper;
-
-    @Override
-    public void onReceive(final Context context, Intent intent) {
-        Log.i(TAG, "Booting");
-        enableComponent(context, TouchscreenGestureSettings.class.getName());
-        context.startService(new Intent(context, ServiceWrapper.class));
+public class BootCompletedReceiver extends BroadcastReceiver
+{
+    private static final boolean DEBUG = false;
+    private static final String TAG = "CMActions";
+    
+    private void enableComponent(final Context context, final String s) {
+        final int n = 1;
+        final ComponentName componentName = new ComponentName(context, s);
+        final PackageManager packageManager = context.getPackageManager();
+        if (packageManager.getComponentEnabledSetting(componentName) == 2) {
+            packageManager.setComponentEnabledSetting(componentName, n, n);
+        }
     }
-
-    private ServiceConnection serviceConnection = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName className, IBinder service) {
-            LocalBinder binder = (LocalBinder) service;
-            mServiceWrapper = binder.getService();
-            mServiceWrapper.start();
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName className) {
-            mServiceWrapper = null;
-        }
-    };
-
-    private void enableComponent(Context context, String component) {
-        ComponentName name = new ComponentName(context, component);
-        PackageManager pm = context.getPackageManager();
-        if (pm.getComponentEnabledSetting(name)
-                == PackageManager.COMPONENT_ENABLED_STATE_DISABLED) {
-            pm.setComponentEnabledSetting(name,
-                    PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-                    PackageManager.DONT_KILL_APP);
-        }
+    
+    public void onReceive(final Context context, final Intent intent) {
+        context.startService(new Intent(context, (Class)SensorsDozeService.class));
     }
 }
