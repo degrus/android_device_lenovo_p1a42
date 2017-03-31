@@ -38,26 +38,19 @@ import cyanogenmod.hardware.TouchscreenGesture;
 public class TouchscreenGestures {
 
     private static final String GESTURE_PATH =
-            "/sys/devices/soc.0/78b9000.i2c/i2c-5/5-005d/gesture_mode";
+            "/sys/devices/virtual/touchscreen/touchscreen_dev/gesture_ctrl";
 
     // Id, name, keycode
     private static final TouchscreenGesture[] TOUCHSCREEN_GESTURES = {
-        new TouchscreenGesture(0, "Letter C", 265),
-        new TouchscreenGesture(1, "Letter e", 266),
-        new TouchscreenGesture(2, "Letter S", 267),
-        new TouchscreenGesture(3, "Letter V", 263),
-        new TouchscreenGesture(4, "Letter W", 268),
-        new TouchscreenGesture(5, "Letter Z", 264),
-    };
-
-    private static final int KEY_MASK_GESTURE_CONTROL = 0x40;
-    public static final int[] ALL_GESTURE_MASKS = {
-        0x04, // c gesture mask
-        0x08, // e gesture mask
-        0x10, // s gesture mask
-        0x01, // v gesture mask
-        0x20, // w gesture mask
-        0x02, // z gesture mask
+        new TouchscreenGesture(0, "One finger up swipe", 254),
+        new TouchscreenGesture(1, "One finger down swipe", 249),
+        new TouchscreenGesture(2, "One finger left swipe", 250),
+        new TouchscreenGesture(3, "One finger right swipe", 251),
+        new TouchscreenGesture(4, "Letter C", 252),
+        new TouchscreenGesture(5, "Letter E", 255),
+        new TouchscreenGesture(6, "Letter M", 256),
+        new TouchscreenGesture(7, "Letter O", 253),
+        new TouchscreenGesture(8, "Letter W", 257),
     };
 
     /**
@@ -91,18 +84,50 @@ public class TouchscreenGestures {
      */
     public static boolean setGestureEnabled(
             final TouchscreenGesture gesture, final boolean state) {
-        int gestureMode = Integer.parseInt(FileUtils.readOneLine(GESTURE_PATH));
-        int mask = ALL_GESTURE_MASKS[gesture.id];
+        String[] cmd = null;
 
-        if (state)
-            gestureMode |= mask;
-        else
-            gestureMode &= ~mask;
+        switch (gesture.id) {
+            case 0:
+                cmd = new String[] { "up=" };
+                break;
+            case 1:
+                cmd = new String[] { "down=" };
+                break;
+            case 2:
+                cmd = new String[] { "left=" };
+                break;
+            case 3:
+                cmd = new String[] { "right=" };
+                break;
+            case 4:
+                cmd = new String[] { "c=" };
+                break;
+            case 5:
+                cmd = new String[] { "e=" };
+                break;
+            case 6:
+                cmd = new String[] { "m=" };
+                break;
+            case 7:
+                cmd = new String[] { "o=" };
+                break;
+            case 8:
+                cmd = new String[] { "w=" };
+                break;
+            default:
+                return false;
+        }
 
-        if (gestureMode != 0)
-            gestureMode |= KEY_MASK_GESTURE_CONTROL;
+        String enabled = state ? "true" : "false";
+        StringBuilder builder = new StringBuilder();
+        for (String i : cmd) {
+            if (builder.length() > 0) {
+                builder.append(',');
+            }
+            builder.append(i);
+            builder.append(enabled);
+        }
 
-        return FileUtils.writeLine(GESTURE_PATH, String.format("%7s",
-                Integer.toBinaryString(gestureMode)).replace(' ', '0'));
+        return FileUtils.writeLine(GESTURE_PATH, builder.toString());
     }
 }
