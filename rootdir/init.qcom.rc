@@ -185,6 +185,8 @@ on boot
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
 
+    chown root system /sys/devices/soc.0/78b9000.i2c/i2c-5/5-005d/gesture_mode
+    chmod 0660 /sys/devices/soc.0/78b9000.i2c/i2c-5/5-005d/gesture_mode
     chown root system /sys/devices/soc.0/78b9000.i2c/i2c-5/5-005d/keypad_enable
     chmod 0660 /sys/devices/soc.0/78b9000.i2c/i2c-5/5-005d/keypad_enable
 
