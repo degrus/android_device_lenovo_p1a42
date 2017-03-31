@@ -60,7 +60,8 @@ BOARD_CHARGER_SHOW_PERCENTAGE := true
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 BACKLIGHT_PATH := "/sys/class/leds/button-backlight/brightness"
 
-
+# CMHW
+BOARD_HARDWARE_CLASS := device/lenovo/p1a42/cmhw/src
 
 # FM
 AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
