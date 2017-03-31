@@ -1,5 +1,7 @@
 #============= init ==============
 allow init sdcardd_exec:file getattr;
+allow init sysfs_touchscreen:file setattr;
+allow system_server sysfs_touchscreen:file rw_file_perms;
 
 #============= nfc ==============
 #allow nfc device:chr_file { read write };
