@@ -16,61 +16,68 @@
 
 package com.cyanogenmod.settings.device;
 
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.util.Log;
+import android.content.*;
+import android.hardware.*;
 
-public class ProximitySensor implements ScreenStateNotifier, SensorEventListener {
-    private static final String TAG = "CMActions-ProximitySensor";
-
-    private final CMActionsSettings mCMActionsSettings;
-    private final SensorHelper mSensorHelper;
-    private final SensorAction mSensorAction;
-    private final Sensor mSensor;
-
+public class ProximitySensor implements SensorEventListener
+{
+    private static final int PROXIMITY_DELAY = 1000000;
+    private static final int PROXIMITY_LATENCY = 100000;
     private boolean mEnabled;
-
-    private boolean mSawNear = false;
-
-    public ProximitySensor(CMActionsSettings cmActionsSettings, SensorHelper sensorHelper,
-                SensorAction action) {
-        mCMActionsSettings = cmActionsSettings;
-        mSensorHelper = sensorHelper;
-        mSensorAction = action;
-
-        mSensor = sensorHelper.getProximitySensor();
-    }
-
-    @Override
-    public void screenTurnedOn() {
-        if (mEnabled) {
-            Log.d(TAG, "Disabling");
-            mSensorHelper.unregisterListener(this);
-            mEnabled = false;
+    private float mMaxRange;
+    private ProximitySensor$ProximityListener mProximityListener;
+    private Sensor mProximitySensor;
+    private boolean mReady;
+    private SensorManager mSensorManager;
+    private boolean mState;
+    
+    public ProximitySensor(final Context context, final SensorManager mSensorManager, final ProximitySensor$ProximityListener mProximityListener) {
+        this.mEnabled = false;
+        this.reset();
+        this.mProximitySensor = mSensorManager.getDefaultSensor(8, true);
+        this.mProximityListener = mProximityListener;
+        this.mSensorManager = mSensorManager;
+        if (this.mProximitySensor != null) {
+            this.mMaxRange = this.mProximitySensor.getMaximumRange();
         }
     }
-
-    @Override
-    public void screenTurnedOff() {
-        if (mCMActionsSettings.isIrWakeupEnabled() && !mEnabled) {
-            Log.d(TAG, "Enabling");
-            mSensorHelper.registerListener(mSensor, this);
-            mEnabled = true;
+    
+    public void disable() {
+        if (this.mEnabled && this.mProximitySensor != null) {
+            this.mSensorManager.unregisterListener((SensorEventListener)this, this.mProximitySensor);
+            this.mEnabled = false;
         }
     }
-
-    @Override
-    public void onSensorChanged(SensorEvent event) {
-        boolean isNear = event.values[0] < mSensor.getMaximumRange();
-        if (mSawNear && !isNear) {
-            Log.d(TAG, "wave triggered");
-            mSensorAction.action();
+    
+    public void enable() {
+        if (!this.mEnabled && this.mProximitySensor != null) {
+            this.mSensorManager.registerListener((SensorEventListener)this, this.mProximitySensor, 1000000, 100000);
+            this.mEnabled = true;
         }
-        mSawNear = isNear;
     }
-
-    @Override
-    public void onAccuracyChanged(Sensor mSensor, int accuracy) {
+    
+    public void onAccuracyChanged(final Sensor sensor, final int n) {
+    }
+    
+    public void onSensorChanged(final SensorEvent sensorEvent) {
+        if (sensorEvent.values.length == 0) {
+            return;
+        }
+        final boolean mState = sensorEvent.values[0] < this.mMaxRange;
+        if (this.mState != mState) {
+            this.mState = mState;
+            if (this.mReady) {
+                this.mProximityListener.onEvent(this.mState, sensorEvent.timestamp);
+            }
+        }
+        if (!this.mReady) {
+            this.mProximityListener.onInit(this.mState, sensorEvent.timestamp);
+            this.mReady = true;
+        }
+    }
+    
+    public void reset() {
+        this.mReady = false;
+        this.mState = false;
     }
 }
