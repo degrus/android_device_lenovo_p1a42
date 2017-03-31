@@ -16,6 +16,14 @@
 
 package com.cyanogenmod.settings.device;
 
-interface SensorAction {
-    public void action();
+import com.android.settingslib.drawer.*;
+import android.os.*;
+import android.app.*;
+
+public class TouchscreenGesturePreferenceActivity extends SettingsDrawerActivity
+{
+    protected void onCreate(final Bundle bundle) {
+        super.onCreate(bundle);
+        this.getFragmentManager().beginTransaction().replace(2131492982, (Fragment)new TouchscreenGesturePreferenceFragment()).commit();
+    }
 }
