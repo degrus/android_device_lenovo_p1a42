@@ -2,4 +2,5 @@ type macaddr_data_file, file_type;
 type fingerprintd_sysfs, sysfs_type, fs_type;
 type fingerprintd_data_file, file_type, data_file_type;
 type fingerprintd_socket, file_type;
+type sysfs_touchscreen, sysfs_type, fs_type;
 
