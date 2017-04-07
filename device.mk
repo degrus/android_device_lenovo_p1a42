@@ -81,7 +81,7 @@ PRODUCT_PACKAGES += \
 
 # CMActions
 PRODUCT_PACKAGES += \
-    CMActions
+    LenovoDoze
 
 # Display
 PRODUCT_PACKAGES += \
