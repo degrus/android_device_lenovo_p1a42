@@ -81,7 +81,7 @@ PRODUCT_PACKAGES += \
 
 # CMActions
 PRODUCT_PACKAGES += \
-    LenovoDoze
+    DeviceSettings
 
 # Display
 PRODUCT_PACKAGES += \

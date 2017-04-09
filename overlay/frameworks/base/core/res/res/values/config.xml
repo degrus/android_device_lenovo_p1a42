@@ -180,10 +180,10 @@
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
    <!-- <integer name="config_deviceHardwareWakeKeys">65</integer>-->
-   
+
     <!-- enabling WifiDisplay(Miracast Source)-->
     <bool name="config_enableWifiDisplay">true</bool>
-    
+
     <!-- Screen brightness used to dim the screen while dozing in a very low power state.
           May be less than the minimum allowed brightness setting
           that can be set by the user. -->
