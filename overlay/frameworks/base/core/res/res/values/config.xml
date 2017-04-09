@@ -180,10 +180,10 @@
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
     <integer name="config_deviceHardwareWakeKeys">65</integer>
-   
+
     <!-- enabling WifiDisplay(Miracast Source)-->
     <bool name="config_enableWifiDisplay">true</bool>
-    
+
     <!-- Screen brightness used to dim the screen while dozing in a very low power state.
           May be less than the minimum allowed brightness setting
           that can be set by the user. -->
@@ -234,10 +234,6 @@
     -->
     <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">false</bool>
     
-    <!-- If true, the doze component is not started until after the screen has been
-         turned off and the screen off animation has been performed. -->
-    <bool name="config_dozeAfterScreenOff">true</bool>
-
     <!-- Doze: should the TYPE_PICK_UP_GESTURE sensor be used as a pulse signal. -->
     <bool name="config_dozePulsePickup">true</bool>
 
