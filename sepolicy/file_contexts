@@ -15,6 +15,3 @@
 
 # fast_charger_sw
 /system/bin/fast_charger_sw 					u:object_r:fast_charger_sw_exec:s0
-
-
-
