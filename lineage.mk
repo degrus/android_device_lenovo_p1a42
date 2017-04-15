@@ -18,9 +18,6 @@ $(call inherit-product, device/lenovo/p1a42/full_p1a42.mk)
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
-# Release name
-PRODUCT_RELEASE_NAME := p1a42
-
 # Boot animation
 TARGET_SCREEN_WIDTH := 1080
 TARGET_SCREEN_HEIGHT := 1920
@@ -31,4 +28,3 @@ PRODUCT_NAME := lineage_p1a42
 PRODUCT_BRAND := Lenovo
 PRODUCT_MANUFACTURER := Lenovo
 PRODUCT_RELEASE_NAME := p1a42
-PRODUCT_MODEL := Vibe P1

@@ -1,6 +1,2 @@
-#degrus mods
 type macaddr_data_file, file_type;
-type sysfs_devices_fingerprintd, sysfs_type, file_type;
-type socket_fingerprintd, file_type;
-type sysfs_touchscreen, sysfs_type, fs_type;
-
+type sysfs_fast_charger_sw, fs_type, sysfs_type;

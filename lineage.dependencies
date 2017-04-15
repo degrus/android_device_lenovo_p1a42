@@ -1,18 +1,22 @@
 [
   {
-    "repository": "android_device_qcom_common",
+    "remote":      "github",
+    "repository":  "LineageOS/android_device_qcom_common",
     "target_path": "device/qcom/common"
   },
   {
-    "repository": "android_external_bson",
+    "remote":      "github",
+    "repository":  "LineageOS/android_external_bson",
     "target_path": "external/bson"
   },
   {
-    "repository": "android_external_stlport",
+    "remote":      "github",
+    "repository":  "LineageOS/android_external_stlport",
     "target_path": "external/stlport"
   },
   {
-    "repository": "android_packages_resources_devicesettings",
+    "remote":      "github",
+    "repository":  "LineageOS/android_packages_resources_devicesettings",
     "target_path": "packages/resources/devicesettings"
   }
 ]
