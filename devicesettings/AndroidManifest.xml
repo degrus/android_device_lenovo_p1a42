@@ -26,10 +26,6 @@
             </intent-filter>
         </receiver>
 
-        <service android:name="com.cyanogenmod.settings.device.GloveModeService"
-                 android:permission="GloveModeService">
-        </service>
-
         <service android:name="com.cyanogenmod.settings.device.SensorsDozeService"
                  android:permission="SensorsDozeService">
         </service>

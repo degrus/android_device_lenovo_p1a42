@@ -1,21 +1,21 @@
-# Device configuration for Lenovo Vibe P1 Turbo
+# Unified Device configuration for Lenovo Vibe P1 & P1 Turbo
 
 ## Spec Sheet
 
-| Feature                 | Specification                         |
-| :---------------------- | :-------------------------------------|
-| CPU                     | Quad-core 1.6 GHz & quad-core 1.2 GHz |
-| Chipset                 | Qualcomm MSM8939 v2 Snapdragon 616    |
-| GPU                     | Adreno 405                            |
-| Memory                  | 2/3GB RAM                             |
-| Shipped Android Version | (5.1)                                 |
-| Storage                 | 32 GB                                 |
-| MicroSD                 | Up to 256GB                           |
-| Battery                 | 4900 mAh                              |
-| Dimensions              | 52.9 x 75.6 x 9.9 mm                  |
-| Display                 | 1080 x 1920 pixels                    |
-| Camera                  | 13 MP                                 |
-| Release Date            | February 2016                         |
+| Feature                 | Specification                                 |
+| :---------------------- | :---------------------------------------------|
+| CPU                     | Quad-core 1.5/1.6 GHz & quad-core 1.1/1.2 GHz |
+| Chipset                 | Qualcomm MSM8939 Snapdragon 615/616           |
+| GPU                     | Adreno 405                            	  |
+| Memory                  | 2/3GB RAM                             	  |
+| Shipped Android Version | (5.1)                                 	  |
+| Storage                 | 32 GB                                 	  |
+| MicroSD                 | Up to 256GB                           	  |
+| Battery                 | 5000/4900 mAh                              	  |
+| Dimensions              | 152.9 x 75.6 x 9.9 mm                         |
+| Display                 | 1080 x 1920 pixels                            |
+| Camera                  | 13 MP                                         |
+| Release Date            | October 2015 / February 2016                  |
 
 ## Device Picture 
 
