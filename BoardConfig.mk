@@ -61,7 +61,7 @@ BOARD_CHARGER_DISABLE_INIT_BLANK := true
 BACKLIGHT_PATH := "/sys/class/leds/button-backlight/brightness"
 
 # CMHW
-BOARD_HARDWARE_CLASS := device/lenovo/p1a42/cmhw/src
+#BOARD_HARDWARE_CLASS := device/lenovo/p1a42/cmhw/src
 
 # FM
 AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
@@ -83,6 +83,9 @@ TARGET_USES_ION := true
 USE_OPENGL_RENDERER := true
 
 # Init
+TARGET_UNIFIED_DEVICE := true
+TARGET_INIT_VENDOR_LIB := libinit_p1a42
+TARGET_RECOVERY_DEVICE_MODULES := libinit_p1a42
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
 # Kernel

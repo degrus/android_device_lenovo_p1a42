@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 The CyanogenMod Project <http://www.cyanogenmod.org>
+ * Copyright (c) 2016 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,12 +14,19 @@
  * limitations under the License.
  */
 
-#ifndef _BDROID_BUILDCFG_H
-#define _BDROID_BUILDCFG_H
+package com.cyanogenmod.settings.device;
 
-#define BTM_DEF_LOCAL_NAME   "Vibe P1"
-#define BLUETOOTH_QTI_SW TRUE
-#define BLE_VND_INCLUDED   TRUE
-#endif
-/* Defined if the kernel does not have support for CLOCK_BOOTTIME_ALARM */
-#define KERNEL_MISSING_CLOCK_BOOTTIME_ALARM TRUE
+import android.os.Bundle;
+
+import com.android.settingslib.drawer.SettingsDrawerActivity;
+
+public class TouchscreenGesturePreferenceActivity extends SettingsDrawerActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getFragmentManager().beginTransaction()
+                .replace(R.id.content_frame, new TouchscreenGesturePreferenceFragment())
+                .commit();
+    }
+}
