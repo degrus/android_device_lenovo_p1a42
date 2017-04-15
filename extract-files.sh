@@ -1,6 +1,7 @@
 #!/bin/bash
 #
 # Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,6 +19,8 @@
 set -e
 export DEVICE=p1a42
 export VENDOR=lenovo
+
+INITIAL_COPYRIGHT_YEAR=2016
 
 # Load extractutils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
@@ -51,5 +54,6 @@ fi
 # Initialize the helper
     setup_vendor "$DEVICE" "$VENDOR" "$CM_ROOT" true
     extract "$MY_DIR"/proprietary-files.txt "$SRC"
+    INITIAL_COPYRIGHT_YEAR=2016
 
 "$MY_DIR"/setup-makefiles.sh
