@@ -17,6 +17,8 @@
 
 set -e
 
+INITIAL_COPYRIGHT_YEAR=2016
+
 # Load extractutils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
@@ -38,6 +40,7 @@ write_headers "p1a42"
 
 # The standard device blobs
 write_makefiles "$MY_DIR"/proprietary-files.txt
+    INITIAL_COPYRIGHT_YEAR=2016
 
 # We are done!
 write_footers
